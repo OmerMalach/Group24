@@ -176,12 +176,6 @@ const login = (req, res) => {
             .send({ message: "Error retrieving downloads: " + downloadErr });
           return;
         }
-
-        res.render("home", {
-          v1: mysqlres[0].Nickname,
-          downloads: downloadResults,
-          loggedInUser: mysqlres[0].Nickname,
-        });
       });
     }
   );
