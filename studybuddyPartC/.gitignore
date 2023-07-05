@@ -1,0 +1,27 @@
+# Ignore editor and IDE files
+*.vscode/
+*.idea/
+*.Rhistory
+
+
+# Ignore dependencies and build artifacts
+studybuddy/node_modules/
+
+
+# Ignore log files
+*.log
+
+# Ignore backup and temporary files
+*.bak
+*.tmp
+
+
+# Ignore image thumbnails
+*.thumb
+
+
+# Ignore package lock files
+package-lock.json
+package.json
+
+

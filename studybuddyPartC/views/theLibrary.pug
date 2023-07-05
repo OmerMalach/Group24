@@ -1,0 +1,38 @@
+doctype html
+html
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    title StudyBuddy: The Library
+    link(rel='stylesheet' href='/CSS/app.css')
+    link(rel='stylesheet' href='/CSS/theLibrary.css')
+    script(src='https://code.jquery.com/jquery-3.6.0.min.js')
+    link(rel='icon' href='../static/photos/icon.png' type='image/x-icon')
+    script(src='https://kit.fontawesome.com/7d07e6b941.js' crossorigin='anonymous')
+  body
+    nav
+      include navBar
+    main
+      #posts-container
+        form(action='/' method='POST' od id='comment-form')
+          if posts && posts.length > 0
+            each post in posts
+              .post-container
+                .post-header
+                  img(src='/photos/nullProfilePic.png' alt='Profile Picture')
+                  h2= post.Nickname
+                  p= formatTimestamp(post.DateTime)
+                  p= post.Email
+                  p= post.Text
+                .comment-section
+                  input(type='hidden' name='Post_ID' value=post.Post_ID)
+                  input(type='text' placeholder='Leave a comment' class='comment-input' id='comment-input')
+                  label(for=`comment-input-${post.Post_ID}`) Enter your comment
+                  button.comment-button(type='submit') Comment
+                  ul.comment-list(id=`comment-list-${post.Post_ID}`)
+                    each comment in post.comments
+                      li= `${comment.Nickname}: ${comment.Text}`
+          else
+    footer
+      include footer
+  script(src='/JS/theLibrary.js')
