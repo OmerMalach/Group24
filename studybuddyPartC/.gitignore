@@ -5,7 +5,7 @@
 
 
 # Ignore dependencies and build artifacts
-studybuddy/node_modules/
+node_modules
 
 
 # Ignore log files
